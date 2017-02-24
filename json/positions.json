@@ -1,0 +1,15 @@
+{"identifier": "pos",
+  "items": [
+            {"id":0,"pos":""},
+            {"id":1,"pos":"P"},
+            {"id":2,"pos":"C"},
+            {"id":3,"pos":"1B"},
+            {"id":4,"pos":"2B"},
+            {"id":5,"pos":"3B"},
+            {"id":6,"pos":"SS"},
+            {"id":7,"pos":"LF"},
+            {"id":8,"pos":"CF"},
+            {"id":9,"pos":"RF"}
+  ]
+}
+

@@ -1,0 +1,11 @@
+{
+	"name": "maniacs",
+	"version": "0.1",
+	"directories": {
+		"lib": "."
+	},
+	"main": "main",
+	"description": "Functions that serve the South Jersey Maniacs 18U website",
+	"license" : "BSD-3-Clause OR AFL-2.1",
+	"dojoBuild": "../maniacs.js"
+}

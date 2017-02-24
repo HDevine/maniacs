@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"variables.js",
+"lineCount":2,
+"mappings":"A;AACAA,MAAA,CAAO,sBAAP,CAA+B,EAA/B,CAAmC,QAAQ,EAAE,CAC5C,MAAO,SAAQ,CAACC,CAAD,CAAW,CACzB,MAAO,CACNC,IAAKA,QAAQ,CAACC,CAAD,CAAQC,CAAR,CAAcC,CAAd,CAAmB,CAC/BF,CAAAG,QAAA,CAAc,SAAd,CAAyB,QAAQ,CAACC,CAAD,CAAU,CAC1C,MAAON,EAAA,CAAUM,CAAV,CADmC,CAA3C,CAD+B,CAD1B,CADkB,CADkB,CAA7C;",
+"sources":["variables.js.uncompressed.js"],
+"names":["define","variables","all","value","rule","name","replace","variable"]
+}

@@ -1,0 +1,7 @@
+{"identifier": "hand",
+  "items": [
+            {"id":1,"hand":"Right"},
+            {"id":2,"hand":"Left"}
+  ]
+}
+

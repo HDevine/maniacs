@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"pagination.js",
+"lineCount":2,
+"mappings":"A;AAAAA,MAAA,CAAO,iCAAP,CAA0C,CACzCC,KAAM,CACLC,OAAQ,uCADH,CAELC,UAAW,kBAFN,CAGLC,SAAU,iBAHL,CAILC,SAAU,qBAJL,CAKLC,SAAU,iBALL,CAMLC,SAAU,YANL,CAOLC,SAAU,cAPL,CAQLC,YAAa,yBARR,CADmC,CAWzCC,GAAI,CAAA,CAXqC,CAYzCC,GAAI,CAAA,CAZqC,CAazCC,GAAI,CAAA,CAbqC,CAczCC,GAAI,CAAA,CAdqC,CAezCC,GAAI,CAAA,CAfqC,CAgBzCC,GAAI,CAAA,CAhBqC,CAiBzCC,GAAI,CAAA,CAjBqC,CAkBzCC,GAAI,CAAA,CAlBqC,CAmBzCC,GAAI,CAAA,CAnBqC,CAoBzCC,GAAI,CAAA,CApBqC,CAqBzC,QAAS,CAAA,CArBgC,CAsBzC,QAAS,CAAA,CAtBgC,CAA1C;",
+"sources":["pagination.js.uncompressed.js"],
+"names":["define","root","status","gotoFirst","gotoNext","gotoPrev","gotoLast","gotoPage","jumpPage","rowsPerPage","ar","de","es","fr","ja","pt","ro","sk","sl","th"]
+}

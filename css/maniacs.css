@@ -1,0 +1,157 @@
+.body{
+  height: 50%;
+  width:  50%;
+}
+
+.maniacsImage {
+  height: 250;
+  width: 250;
+}
+
+.maniacsMobileImage {
+  height: 150px;
+  width: 150px;
+}
+
+.maniacsImage:hover,
+.maniacsMobileImage:hover {
+   border-style: solid;
+   border-width: 2px;
+   border-color: yellow;
+}
+
+.maniacsProfilePage {
+  background-color: #99FFCC;
+}
+
+.maniacsProfile {
+  font-family: "Tahoma";
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.maniacsWelcome {
+  font-family: "Papyrus";
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #000000;
+}
+
+.maniacsCopyright {
+  font-family: "Arial";
+  font-size: 12px;
+}
+
+.maniacsTeamPhotos {
+  font-family: "Arial";
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.maniacsRosterDialog {
+  font-family: "Arial";
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.maniacsPracticeSchedule {
+  font-family: "Times New Roman";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.maniacsCenter {
+  text-align: center;
+}
+
+.maniacsTable {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+}
+
+.maniacsRow {
+  display: table-row;
+}
+
+.maniacsCell {
+  display: table-cell;
+  padding: 5px;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+.maniacsProfileCellHeading {
+  display: table-cell;
+  font-family: "Times New Roman";
+  font-size: 12px;  
+}
+
+.maniacsNewsItem {
+  font-family: "Arial";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.maniacsNewsTitle {
+  font-family: "Courier New";
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.claro .dojoxCalendarEvent.Games .bg {
+  background-color: #00AA00;
+}
+
+.claro .dojoxCalendarEvent.Games.Hovered .bg {
+  background-color: #00FF00;
+}
+
+.claro .dojoxCalendarEvent.Games.Selected .bg {
+  background-color: #004400;
+}
+
+.claro .dojoxCalendarEvent.Practices .bg {
+  background-color: #0000AA;
+}
+
+.claro .dojoxCalendarEvent.Practices.Hovered .bg {
+  background-color: #0000FF;
+}
+
+.claro .dojoxCalendarEvent.Practices.Selected .bg {
+  background-color: #000044;
+}
+
+.claro .dojoxCalendarEvent.Birthdays .bg {
+  background-color: #0000CC;
+}
+
+.claro .dojoxCalendarEvent.Birthdays.Hovered .bg {
+  background-color: #CC0000;
+}
+
+.claro .dojoxCalendarEvent.Birthdays.Selected .bg {
+  background-color: #00CC00;
+}
+
+.deleteGridItem {
+  background-image: url("../images/deleteGridItem.png"); 
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.claro .dijitTitlePaneContentInner {
+  padding: 10px;
+  background-color: #008080;
+}
+.claro .dijitTitlePaneTitle {
+  font-weight: bold;
+  font-size: 25px;
+  background-color: #C0C0C0 !important;
+}

@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"pagination.js",
+"lineCount":2,
+"mappings":"A;AAAAA,MAAA,CAAO,oCAAP,CAA6C,CAC3CC,OAAQ,8CADmC,CAE3CC,UAAW,oCAFgC,CAG3CC,SAAU,+BAHiC,CAI3CC,SAAU,2CAJiC,CAK3CC,SAAU,oCALiC,CAM3CC,SAAU,sBANiC,CAO3CC,SAAU,sBAPiC,CAA7C;",
+"sources":["pagination.js.uncompressed.js"],
+"names":["define","status","gotoFirst","gotoNext","gotoPrev","gotoLast","gotoPage","jumpPage"]
+}

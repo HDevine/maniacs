@@ -1,0 +1,8 @@
+{"identifier": "type",
+  "items": [
+            {"id":1,"type":"Tournament"},
+            {"id":2,"type":"League"},
+            {"id":3,"type":"Exhibition"}
+  ]
+}
+

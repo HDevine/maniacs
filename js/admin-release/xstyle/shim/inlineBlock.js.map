@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"inlineBlock.js",
+"lineCount":2,
+"mappings":"A;AAWAA,MAAA,CACC,yBADD,CAC4B,QAAS,EAAG,CAEtC,MAAO,CAENC,WAAYA,QAAS,CAACC,CAAD,CAAOC,CAAP,CAAc,CAOlC,GAAI,cAAJ,GAAuBA,CAAvB,CACC,MAAO,0BAR0B,CAF7B,CAF+B,CADxC;",
+"sources":["inlineBlock.js.uncompressed.js"],
+"names":["define","onProperty","name","value"]
+}

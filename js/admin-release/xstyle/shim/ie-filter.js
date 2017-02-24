@@ -1,0 +1,4 @@
+//>>built
+define("xstyle/shim/ie-filter",[],function(){return{onProperty:function(e,d){var b=d.split(/\s+/);if("box-shadow"==e){var a=parseFloat(b[0]),c=parseFloat(b[1]);return"filter: progid:DXImageTransform.Microsoft.Shadow(strength\x3d"+Math.sqrt(a*a+c*c)+",direction\x3d"+((0<c?180:360)-180*Math.atan(a/c)/Math.PI)+",color\x3d'"+b[3]+"');"}if("transform"==e&&d.match(/rotate/))return a=d.match(/rotate\(([-\.0-9]+)deg\)/)[1]/180*Math.PI,b=Math.cos(a),a=Math.sin(a),"filter: progid:DXImageTransform.Microsoft.Matrix(M11\x3d"+
+b+", M12\x3d"+-a+",M21\x3d"+a+", M22\x3d"+b+", sizingMethod\x3d'auto expand');"}}});
+//# sourceMappingURL=ie-filter.js.map

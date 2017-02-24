@@ -1,0 +1,74 @@
+{ "items": [
+	{
+          "thumb":"images/devine.jpg",
+	  "large":"images/devine.jpg",
+	  "title":"2 - Amber Devine",
+	  "link" :"1"
+	},
+	{
+         "thumb":"images/lusciano.jpg",
+         "large":"images/lusciano.jpg",
+         "title":"3 - Gianni Lusciano",
+         "link" :"2"
+	},
+	{
+         "thumb":"images/dottavio.jpg",
+         "large":"images/dottavio.jpg",
+         "title":"6 - Gabriella D'Ottavio",
+         "link" :"3"
+	},
+	{
+         "thumb":"images/giannascoli.jpg",
+         "large":"images/giannascoli.jpg",
+         "title":"7 - Alyssa Giannascoli",
+         "link" :"4"
+	},
+	{
+         "thumb":"images/riggs.jpg",
+         "large":"images/riggs.jpg",
+         "title":"8 - Kaitlyn Riggs",
+         "link" :"5"
+	},
+	{
+         "thumb":"images/pennino.jpg",
+         "large":"images/pennino.jpg",
+         "title":"13 - Bailey Pennino",
+         "link" :"6"
+	},
+	{
+         "thumb":"images/williams.jpg",
+         "large":"images/williams.jpg",
+         "title":"15 - Taylor Williams",
+         "link" :"7"
+	},
+	{
+         "thumb":"images/healy.jpg",
+         "large":"images/healy.jpg",
+         "title":"19 - Maeve Healy",
+         "link" :"8"
+	},
+	{
+         "thumb":"images/ortiz.jpg",
+         "large":"images/ortiz.jpg",
+         "title":"22 - Samantha Ortiz",
+         "link" :"9"
+	},
+	{
+         "thumb":"images/manera.jpg",
+         "large":"images/manera.jpg",
+         "title":"24 - Casey Manera",
+         "link" :"10"
+	},
+	{
+         "thumb":"images/preziosi.jpg",
+         "large":"images/preziosi.jpg",
+         "title":"28 - Alexa Preziosi",
+         "link" :"11"
+	},
+	{
+         "thumb":"images/scozzafava.jpg",
+         "large":"images/scozzafava.jpg",
+         "title":"33 - Sydnee Scozzafava",
+         "link" :"12"
+	}
+]}

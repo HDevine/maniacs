@@ -1,0 +1,7 @@
+{"identifier": "type",
+  "items": [
+            {"id":1,"type":"Head Coach"},
+            {"id":2,"type":"Assistant Coach"}
+  ]
+}
+
