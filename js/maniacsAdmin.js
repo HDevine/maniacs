@@ -2069,7 +2069,7 @@ define([
           }
 
           /* Edit Roster Member button */
-          on(registry.byId("editOKButton"), 'click', function(evt) {
+          on.once(registry.byId("editOKButton"), 'click', function(evt) {
             mod.editPlayer(id);
           });
 
