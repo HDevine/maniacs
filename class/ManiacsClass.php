@@ -870,6 +870,52 @@ class ManiacsClass {
      } 
 
      mysqli_close($linkID);  
+
+     /* Update the game's Google Map field if one of the address fields was updated. */
+     if (($field == "game_address") || ($field == "game_state") ||
+         ($field == "game_city" ) || ($field == "game_city")) {
+       $this->UpdateGoogleMap($id);
+     }
+
+  }
+
+  public function UpdateGoogleMap($id) {
+  /************************************************************************/
+  /* UpdateGoogleMap                                                      */
+  /*  Description - This function will update the specfied game's Google  */
+  /*                Map field.                                            */
+  /*  Accepts - ID of game to update.                                     */
+  /*  Returns - Nothing.                                                  */
+  /*  Effects - Google Map field updated.                                 */
+  /************************************************************************/
+
+     /* Connect to the backend database */
+     $linkID = $this->connect_to_db();
+     $info = array();
+
+     $sql = "SELECT game_address, game_city, game_state, game_zip FROM games WHERE id='$id'";
+     $sqlResult = mysqli_query($linkID, $sql);
+     while ($row = mysqli_fetch_object($sqlResult))
+     {
+       $info[] = $row;
+     }
+     mysqli_close($linkID);  
+
+     $map = "http://maps.google.com/?q=" . $info[0]->game_address . "," . $info[0]->game_city . "," . $info[0]->game_state . " " . $info[0]->game_zip . "&t=h&z=20";
+
+     /* Connect to the backend database */
+     $linkID = $this->connect_to_db();
+     $sql = "UPDATE games SET game_map='$map' WHERE id='$id'";
+     $sqlResult = mysqli_query($linkID, $sql);
+
+     if ($sqlResult) {
+        echo "Google Map field updated successfully!\n";
+     }
+     else {
+        echo "Error updating Google Map field; error: " . mysqli_error($linkID) . "\n";
+     } 
+
+     mysqli_close($linkID);  
   }
 
   public function GetPractices() {
