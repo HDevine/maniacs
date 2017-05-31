@@ -14,7 +14,7 @@ define([
   "dojo/_base/declare",
   "dojo/_base/json",
   "dojo/store/Observable",
-  "dojo/dojo-smore/RequestMemory",
+  "dojo-smore/RequestMemory",
   "dojo/dom-attr",
   "dojo/request",
   "dojo/date",
@@ -1388,7 +1388,7 @@ define([
         request.post("getPlayerProfile.php", {
           handleAs: "json",
           method: "POST",
-          data: {id: id},
+          data: {id: id}
         }).then(function (data) {
           /* Create the Player First Name Text Box control */
           if (!registry.byId("editFirstName")){
@@ -1444,6 +1444,7 @@ define([
           }
           else {
             editPos1.reset();
+            editPos1.set("value", data[0].position1);
             editPos1.set("store", mod.positionsStore);
           }
 
@@ -1462,6 +1463,7 @@ define([
           }
           else {
             editPos2.reset();
+            editPos2.set("value", data[0].position2);
             editPos2.set("store", mod.positionsStore);
           }
 
@@ -1480,6 +1482,7 @@ define([
           }
           else {
             editPos3.reset();
+            editPos3.set("value", data[0].position3);
             editPos3.set("store", mod.positionsStore);
           }
 
@@ -1498,6 +1501,7 @@ define([
           }
           else {
             editThrows.reset();
+            editThrows.set("value", data[0].throws);
             editThrows.set("store", mod.batsthrowsStore);
           }
 
@@ -1516,6 +1520,7 @@ define([
           }
           else {
             editBats.reset();
+            editBats.set("value", data[0].bats);
             editBats.set("store", mod.batsthrowsStore);
           }
 
@@ -1780,6 +1785,7 @@ define([
           }
           else {
             editGradYear.reset();
+            editGradYear.set("value", data[0].grad_date);
             editGradYear.set("store", mod.gradyearStore);
           }
 
@@ -2337,7 +2343,7 @@ define([
             address: editor({label: "Address", field: "practice_address"},"text", "dblclick"),
             city: editor({label: "City", field: "practice_city"},"text", "dblclick"),
             state: editor({label: "State", field: "practice_state", editorArgs:{ store: mod.stateStore, labelAttr: "displaystate", style: "width: 100px;"}}, Select, "dblclick"),
-            zip: editor({label: "Zip", field: "practice_zip"}, "text", "dblclick"),
+            zip: editor({label: "Zip", field: "practice_zip"}, "text", "dblclick")
           },
           loadingMessage: "Loading Maniacs Practices",
           errorMessage: "Error loading Maniacs Practices",
@@ -2481,7 +2487,7 @@ define([
       request.post("addPlayer.php", {
         handleAs: "text",
         method: "POST",
-        data: {data: member},
+        data: {data: member}
       }).then(function(data) {
         registry.byId("RosterDlg").hide();
         mod.rosterStore.add({id: data, 
@@ -2601,7 +2607,7 @@ define([
         method: "POST",
         data: {data: member,
                id: id
-              },
+              }
       }).then(function(data) {
         registry.byId("EditRosterDlg").hide();
 //        mod.rosterStore.add({id: id, 
@@ -2841,7 +2847,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("coachStatus", "innerHTML", data);
          mod.coachGrid.save();
@@ -2877,7 +2883,7 @@ define([
       var mod=this;
       request.post("deletePlayer.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("rosterStatus", "innerHTML", data);
             mod.rosterStore.remove(id);
@@ -2914,7 +2920,7 @@ define([
       var mod=this;
       request.post("deleteCoach.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("coachStatus", "innerHTML", data);
             mod.coachStore.remove(id);
@@ -2934,7 +2940,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("eventStatus", "innerHTML", data);
          mod.eventGrid.save();
@@ -2971,7 +2977,7 @@ define([
       var mod=this;
       request.post("deleteEvent.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("eventStatus", "innerHTML", data);
             mod.eventStore.remove(id);
@@ -2991,7 +2997,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("photoStatus", "innerHTML", data);
          mod.photoGrid.save();
@@ -3028,7 +3034,7 @@ define([
       var mod=this;
       request.post("deletePhoto.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("photoStatus", "innerHTML", data);
             mod.photoStore.remove(id);
@@ -3048,7 +3054,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("newsStatus", "innerHTML", data);
          mod.newsGrid.save();
@@ -3085,7 +3091,7 @@ define([
       var mod=this;
       request.post("deleteNewsItem.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("newsStatus", "innerHTML", data);
             mod.newsStore.remove(id);
@@ -3105,7 +3111,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("gameStatus", "innerHTML", data);
          mod.gamesGrid.save();
@@ -3142,7 +3148,7 @@ define([
       var mod=this;
       request.post("deleteGame.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("gameStatus", "innerHTML", data);
             mod.gamesStore.remove(id);
@@ -3162,7 +3168,7 @@ define([
           value: newValue,
           field: field,
           id: id
-      },
+      }
       }).then (function(data){
          domAttr.set("practiceStatus", "innerHTML", data);
          mod.practiceGrid.save();
@@ -3199,7 +3205,7 @@ define([
       var mod=this;
       request.post("deletePractice.php", {
         handleAs: "text",
-        data: {id: id},
+        data: {id: id}
         }).then (function(data){
             domAttr.set("practiceStatus", "innerHTML", data);
             mod.practiceStore.remove(id);
@@ -3209,7 +3215,7 @@ define([
             domAttr.set("practiceStatus", "innerHTML", "Error deleting selected practice; Error = " + e);
             setTimeout(function(){domAttr.set("practiceStatus", "innerHTML", "");}, 5000);
       });
-    },
+    }
 
   }
 });
