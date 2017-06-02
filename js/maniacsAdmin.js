@@ -2069,8 +2069,14 @@ define([
           }
 
           /* Edit Roster Member button */
-          on.once(registry.byId("editOKButton"), 'click', function(evt) {
+          var onSignal = on.once(registry.byId("editOKButton"), 'click', function(evt) {
             mod.editPlayer(id);
+            cancelSignal.remove();
+          });
+
+          /* Edit Roster Member Cancel button */
+          var cancelSignal = on.once(registry.byId("editCancelButton"), 'click', function(evt) {
+            onSignal.remove();
           });
 
           registry.byId("EditRosterDlg").show();
