@@ -21,15 +21,17 @@ define([
   "dojo/date/locale",
   "dojo/date/stamp",
   "dojo/_base/lang",
+  "dojo/has",
   "dgrid/Grid", 
   "dgrid/extensions/Pagination", 
   "dgrid/extensions/ColumnResizer",
   "dgrid/extensions/DijitRegistry",
   "dgrid/Selection",
-  "dgrid/editor"
+  "dgrid/editor",
+  "dgrid/util/touch"
 ], function(registry, Button, Dialog, DateTextBox, TimeTextBox, TextBox, Textarea, Select, Menu, MenuItem,
             ConfirmDialog, on, declare, json, Observable, RequestMemory, domAttr, request, date, locale, stamp, 
-            lang, Grid, Pagination, ColumnResizer, DijitRegistry, Selection, editor) {
+            lang, has, Grid, Pagination, ColumnResizer, DijitRegistry, Selection, editor,touchUtil) {
 
   return {
 
@@ -2292,8 +2294,8 @@ define([
             time: {label: "Game Time", field: "game_time", renderCell: mod.formatTime},
             type: editor({label: "Game Type", field: "game_type", editorArgs:{ store: mod.gameTypeStore, labelAttr: "type", style: "width: 100px;"}}, Select, "dblclick"),
             opponent: editor({label: "Opponent", field: "game_opponent"},"text", "dblclick"),
-            score: editor({label: "Maniacs Score", field: "maniacs_score"}, "text", "dblclick"),
-            oppscore: editor({label: "Opponent Score", field: "opponent_score"},"text","dblclick"),
+            score: editor({label: "Maniacs Score", field: "maniacs_score"}, "text",  has('touch') ? "click" : "dblclick"),
+            oppscore: editor({label: "Opponent Score", field: "opponent_score"},"text", has('touch') ? "click" : "dblclick"),
             address: editor({label: "Address", field: "game_address"},"text", "dblclick"),
             city: editor({label: "Address", field: "game_city"},"text", "dblclick"),
             state: editor({label: "State", field: "game_state", editorArgs:{ store: mod.stateStore, labelAttr: "displaystate", style: "width: 100px;"}}, Select, "dblclick"), 
@@ -2323,6 +2325,11 @@ define([
         evt.preventDefault(); // prevent default browser context menu
         var row = mod.gameseGrid.row(evt);
         activeItem = row && row.data;
+      });
+
+      /* Handler for double-taps on a mobile device */
+      mod.gamesGrid.on(touchUtil.selector('.dgrid-content .dgrid-row', touchUtil.dbltap), function(event) {
+        alert("Column clicked: " + event.cell.column.id);
       });
 
       var deleteGameMenu = new Menu({
