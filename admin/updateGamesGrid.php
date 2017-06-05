@@ -23,6 +23,10 @@
     $update = "game_state";
   if ($field == "zip")
     $update = "game_zip";
+  if ($field == "oppscore")
+    $update = "opponent_score";
+  if ($field == "score")
+    $update = "maniacs_score";
 
   $maniacs->UpdateGame($id, $update, $value);
 ?>
