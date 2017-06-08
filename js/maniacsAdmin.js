@@ -741,13 +741,13 @@ define([
         }
 
         /* Add Roster Member button */
-        var rosterAddSignal = on(registry.byId("rosterAddButton"), 'click', function(evt) {
+        var rosterAddSignal = on.once(registry.byId("rosterAddButton"), 'click', function(evt) {
           mod.addPlayer();
           rosterCancelSignal.remove();
         });
 
         /* Add Roster Member Cancel button */
-        var rosterCancelSignal = on(registry.byId("rosterCancelButton"), 'click', function(evt) {
+        var rosterCancelSignal = on.once(registry.byId("rosterCancelButton"), 'click', function(evt) {
           rosterAddSignal.remove();
         });
 
