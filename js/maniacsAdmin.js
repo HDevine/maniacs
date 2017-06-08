@@ -741,8 +741,14 @@ define([
         }
 
         /* Add Roster Member button */
-        on(registry.byId("rosterAddButton"), 'click', function(evt) {
+        var rosterAddSignal = on(registry.byId("rosterAddButton"), 'click', function(evt) {
           mod.addPlayer();
+          rosterCancelSignal.remove();
+        });
+
+        /* Add Roster Member Cancel button */
+        var rosterCancelSignal = on(registry.byId("rosterCancelButton"), 'click', function(evt) {
+          rosterAddSignal.remove();
         });
 
         /* Show the Add Roster Member dialog */
