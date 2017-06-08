@@ -1129,6 +1129,19 @@ define([
           gameTypeSelect.set("store", mod.gameTypeStore);
         }
 
+        /* Create the Game Description Text Box control */
+        if (!registry.byId("gameDesc")){
+            gameDescEdit = new TextBox({
+            id: "gameDesc",
+            name: "gameDesc",
+            value: "",
+            style: "width: 200px;"
+          }, "gameDesc");
+        }
+        else {
+          gameDescEdit.set("value", "");
+        }
+
         /* Create the Game Opponent Text Box control */
         if (!registry.byId("gameOpponent")){
             gameOpponentEdit = new TextBox({
@@ -1344,6 +1357,7 @@ define([
       if (!registry.byId("maniacsPlayerGrid")) {
         mod.rosterGrid = new StandardGrid({
           columns: {
+            id: {label: "Player ID", field: "id", width: 75},
             number: {label: "Number", field: "number"},
             firstname: {label: "First Name", field: "firstname"},
             lastname: {label: "Last Name", field: "lastname"},
@@ -2293,11 +2307,12 @@ define([
             date: {label: "Game Date", field: "game_date", renderCell: mod.formatDate},
             time: {label: "Game Time", field: "game_time", renderCell: mod.formatTime},
             type: editor({label: "Game Type", field: "game_type", editorArgs:{ store: mod.gameTypeStore, labelAttr: "type", style: "width: 100px;"}}, Select, "dblclick"),
+            desc: editor({label: "Description", field: "game_desc"}, "text", "dblclick"),
             opponent: editor({label: "Opponent", field: "game_opponent"},"text", "dblclick"),
             score: editor({label: "Maniacs Score", field: "maniacs_score"}, "text",  has('touch') ? "click" : "dblclick"),
             oppscore: editor({label: "Opponent Score", field: "opponent_score"},"text", has('touch') ? "click" : "dblclick"),
             address: editor({label: "Address", field: "game_address"},"text", "dblclick"),
-            city: editor({label: "Address", field: "game_city"},"text", "dblclick"),
+            city: editor({label: "City", field: "game_city"},"text", "dblclick"),
             state: editor({label: "State", field: "game_state", editorArgs:{ store: mod.stateStore, labelAttr: "displaystate", style: "width: 100px;"}}, Select, "dblclick"), 
             zip: editor({label: "Zip", field: "game_zip"},"text", "dblclick")
           },
@@ -2323,7 +2338,7 @@ define([
       /* Handler for the Practice Grid context menu */
       on(mod.gamesGrid, ".dgrid-row:contextmenu", function(evt){
         evt.preventDefault(); // prevent default browser context menu
-        var row = mod.gameseGrid.row(evt);
+        var row = mod.gamesGrid.row(evt);
         activeItem = row && row.data;
       });
 
@@ -2802,6 +2817,7 @@ define([
       var gameTime = registry.byId("gameTime").get("value");
       var gameType = registry.byId("gameType").get("value");
       var game_opponent = registry.byId("gameOpponent").get("value");
+      var game_desc = registry.byId("gameDesc").get("value");
       var address = registry.byId("gameAddress").get("value");
       var city = registry.byId("gameCity").get("value");
       var state = registry.byId("gameState").get("value");
@@ -2815,6 +2831,7 @@ define([
         data: {date: date,
                time: sTime,
                type: gameType,
+               desc: game_desc,
                opponent: game_opponent,
                address: address,
                city: city,
@@ -2826,6 +2843,7 @@ define([
                            date: gameDate,
                            time: gameTime,
                            type: gameType,
+                           desc: game_desc,
                            opponent: game_opponent,
                            address: address,
                            city: city,
