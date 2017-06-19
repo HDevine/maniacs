@@ -2326,7 +2326,7 @@ define([
           errorMessage: "Error loading Maniacs Games",
           noDataMessage: "No games currently exist",
           store: mod.gamesStore,
-          sort: [{attribute: "game_date", descending: true}],
+          sort: [{attribute: "game_date", descending: false}, {attribute: "game_time", descending: false}],
           selectionMode: "none",
           rowsPerPage: 50
         }, "maniacsGamesGrid");

@@ -214,6 +214,7 @@ define([
              date: {label: "Date", field: "game_date", renderCell: mod.formatDate},
              start: {label: "Time", field: "game_time", renderCell: mod.formatTime},
              type: {label: "Type", field: "game_type"},
+             desc: {label: "Description", field: "game_desc"},
              opponent: {label: "Opponent", field: "game_opponent"},
              maniacs_score: {label: "Maniacs Score", field: "maniacs_score"},
              opponent_score: {label: "Opponent Score", field: "opponent_score"},
@@ -227,7 +228,7 @@ define([
            errorMessage: "Error loading Maniacs Games",
            noDataMessage: "No games currently exist",
            store: gameStore,
-           sort: [{attribute: "game_date", descending: true}],
+           sort: [{attribute: "game_date", descending: false}, {attribute: "game_time", descending: false}],
            selectionMode: "none",
            rowsPerPage: 50
          }, "gameGrid");
