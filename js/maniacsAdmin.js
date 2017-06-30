@@ -1403,6 +1403,14 @@ define([
         }
       }));
 
+      deletePlayerMenu.addChild(new MenuItem({
+        label: "Create PDF datasheet",
+        iconClass: "pdfItem",
+        onClick: function() {
+          mod.pdfData(activeItem.id);
+        }
+      }));
+
       /* Handle a double-click on a player, which will open the roster */
       /* dialog to allow the admin to edit that user's information     */
       on(mod.rosterGrid, '.dgrid-content .dgrid-cell:dblclick', function (evt) {
@@ -2930,6 +2938,12 @@ define([
             domAttr.set("rosterStatus", "innerHTML", "Error deleting selected player; Error = " + e);
             setTimeout(function(){domAttr.set("playerStatus", "innerHTML", "");}, 5000);
       });
+    },
+
+    /* This function will create a new window/tab with the selected player's information. */
+    /* This page can be printed to a PDF and uploaded to the server for viewing later.    */
+    pdfData: function(id) {
+      window.open("pdfData.php?id=" + id);
     },
 
     deleteCoach: function(id) {
