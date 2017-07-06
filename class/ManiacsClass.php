@@ -63,7 +63,7 @@ class ManiacsClass {
      $info = array();
      switch ($type) {
        case "basic":
-         $sql = "SELECT id, firstname, lastname, number, position1, profile_pic_path FROM players ORDER BY number ASC";
+         $sql = "SELECT id, firstname, lastname, number, position1, profile_pic_path, video_url FROM players ORDER BY number ASC";
          break;
        case "full":
          $sql = "SELECT * FROM players p LEFT JOIN stats s ON s.player_id = p.id";
@@ -810,16 +810,17 @@ class ManiacsClass {
      $game_date = $info[0];
      $game_time = $info[1];
      $game_type = $info[2];
-     $game_opponent = $info[3];
-     $game_address = $info[4];
-     $game_city = $info[5];
-     $game_state = $info[6];
-     $game_zip = $info[7];
-     $game_map = $info[8];
+     $game_desc = $info[3];
+     $game_opponent = $info[4];
+     $game_address = $info[5];
+     $game_city = $info[6];
+     $game_state = $info[7];
+     $game_zip = $info[8];
+     $game_map = $info[9];
 
      $sql = "INSERT INTO games SET game_date='$game_date',game_time='$game_time',
-             game_type='$game_type', game_opponent='$game_opponent', opponent_score='0',
-             maniacs_score='0', game_address='$game_address', game_city='$game_city',
+             game_type='$game_type', game_desc='$game_desc',game_opponent='$game_opponent', 
+             opponent_score='0',maniacs_score='0', game_address='$game_address', game_city='$game_city',
              game_state='$game_state',game_zip='$game_zip', game_map='$game_map'";
      $sqlResult = mysqli_query($linkID, $sql);
      $id = mysqli_insert_id($linkID);
