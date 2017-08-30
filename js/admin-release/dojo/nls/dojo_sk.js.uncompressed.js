@@ -7,5 +7,7 @@ define('dojo/nls/dojo_sk',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Zadaná hodnota nie je platná.","missingMessage":"Táto hodnota je povinná.","rangeMessage":"Táto hodnota je mimo rozsah.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Predchádzajúce možnosti","nextMessage":"Viac možností","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} z ${total} výsledkov","gotoFirst":"Prvá stránka","gotoNext":"Nasledovná stránka","gotoPrev":"Predchádzajúca stránka","gotoLast":"Posledná stránka","gotoPage":"Na stránku","jumpPage":"Na stránku","rowsPerPage":"Number of rows per page","_localized":{}}
 });

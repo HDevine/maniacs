@@ -7,5 +7,7 @@ define('dojo/nls/dojo_nb',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Den angitte verdien er ikke gyldig.","missingMessage":"Denne verdien er obligatorisk.","rangeMessage":"Denne verdien er utenfor gyldig område.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Tidligere valg","nextMessage":"Flere valg","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

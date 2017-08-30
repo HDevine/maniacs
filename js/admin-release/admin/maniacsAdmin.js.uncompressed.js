@@ -10,6 +10,7 @@ define("admin/maniacsAdmin", [
   "dijit/Menu",
   "dijit/MenuItem",
   "dijit/ConfirmDialog",
+  "dijit/form/ComboBox",
   "dojo/on",
   "dojo/_base/declare",
   "dojo/_base/json",
@@ -21,15 +22,17 @@ define("admin/maniacsAdmin", [
   "dojo/date/locale",
   "dojo/date/stamp",
   "dojo/_base/lang",
+  "dojo/has",
   "dgrid/Grid", 
   "dgrid/extensions/Pagination", 
   "dgrid/extensions/ColumnResizer",
   "dgrid/extensions/DijitRegistry",
   "dgrid/Selection",
-  "dgrid/editor"
+  "dgrid/editor",
+  "dgrid/util/touch"
 ], function(registry, Button, Dialog, DateTextBox, TimeTextBox, TextBox, Textarea, Select, Menu, MenuItem,
-            ConfirmDialog, on, declare, json, Observable, RequestMemory, domAttr, request, date, locale, stamp, 
-            lang, Grid, Pagination, ColumnResizer, DijitRegistry, Selection, editor) {
+            ConfirmDialog, ComboBox, on, declare, json, Observable, RequestMemory, domAttr, request, date, locale, stamp, 
+            lang, has, Grid, Pagination, ColumnResizer, DijitRegistry, Selection, editor,touchUtil) {
 
   return {
 
@@ -48,6 +51,7 @@ define("admin/maniacsAdmin", [
     gradyearStore: new Observable(new RequestMemory({url:"json/gradyear.json"})),
     yearsStore: new Observable(new RequestMemory({url:"json/years.json"})),
     gameTypeStore: new Observable(new RequestMemory({url:"json/gameType.json"})),
+    alumniStore: new Observable (new RequestMemory({url:"json/alumni.json"})),
 
     /* Define the grids */
     rosterGrid: null,
@@ -739,8 +743,14 @@ define("admin/maniacsAdmin", [
         }
 
         /* Add Roster Member button */
-        on(registry.byId("rosterAddButton"), 'click', function(evt) {
+        var rosterAddSignal = on.once(registry.byId("rosterAddButton"), 'click', function(evt) {
           mod.addPlayer();
+          rosterCancelSignal.remove();
+        });
+
+        /* Add Roster Member Cancel button */
+        var rosterCancelSignal = on.once(registry.byId("rosterCancelButton"), 'click', function(evt) {
+          rosterAddSignal.remove();
         });
 
         /* Show the Add Roster Member dialog */
@@ -1127,6 +1137,19 @@ define("admin/maniacsAdmin", [
           gameTypeSelect.set("store", mod.gameTypeStore);
         }
 
+        /* Create the Game Description Text Box control */
+        if (!registry.byId("gameDesc")){
+            gameDescEdit = new TextBox({
+            id: "gameDesc",
+            name: "gameDesc",
+            value: "",
+            style: "width: 200px;"
+          }, "gameDesc");
+        }
+        else {
+          gameDescEdit.set("value", "");
+        }
+
         /* Create the Game Opponent Text Box control */
         if (!registry.byId("gameOpponent")){
             gameOpponentEdit = new TextBox({
@@ -1342,10 +1365,12 @@ define("admin/maniacsAdmin", [
       if (!registry.byId("maniacsPlayerGrid")) {
         mod.rosterGrid = new StandardGrid({
           columns: {
+            id: {label: "Player ID", field: "id", width: 75},
             number: {label: "Number", field: "number"},
             firstname: {label: "First Name", field: "firstname"},
             lastname: {label: "Last Name", field: "lastname"},
             position: {label: "Position", field: "position1"},
+            alumni: {label: "Alumni?", field: "alumni"},
             pic: {label: "Profile Pic", field: "profile_pic_path"}
           },
           loadingMessage: "Loading Maniacs Roster",
@@ -1381,6 +1406,14 @@ define("admin/maniacsAdmin", [
         }
       }));
 
+      deletePlayerMenu.addChild(new MenuItem({
+        label: "Create PDF datasheet",
+        iconClass: "pdfItem",
+        onClick: function() {
+          mod.pdfData(activeItem.id);
+        }
+      }));
+
       /* Handle a double-click on a player, which will open the roster */
       /* dialog to allow the admin to edit that user's information     */
       on(mod.rosterGrid, '.dgrid-content .dgrid-cell:dblclick', function (evt) {
@@ -1390,6 +1423,7 @@ define("admin/maniacsAdmin", [
           method: "POST",
           data: {id: id}
         }).then(function (data) {
+
           /* Create the Player First Name Text Box control */
           if (!registry.byId("editFirstName")){
               editFirstNameEdit = new TextBox({
@@ -1429,6 +1463,23 @@ define("admin/maniacsAdmin", [
             editJerseyEdit.set("value", data[0].number);
           }
 
+          /* Set the Alumni designation */
+          if (!registry.byId("editAlumni")) {
+            editAlumni = new ComboBox({
+              id: "editAlumni",
+              name: "editAlumni",
+              value: data[0].alumni,
+              store: mod.alumniStore,
+              searchAttr: "alumni",
+              style: "width: 125px;"
+            }, "editAlumni");
+          }
+          else {
+            editAlumni.reset();
+            editAlumni.set("value", data[0].alumni);
+            editAlumni.set("store", mod.alumniStore);
+          }
+
           /* Create the Roster Position 1 control */
           if (!registry.byId("editPos1")) {
             editPos1 = new Select({
@@ -1444,6 +1495,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editPos1.reset();
+            editPos1.set("value", data[0].position1);
             editPos1.set("store", mod.positionsStore);
           }
 
@@ -1462,6 +1514,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editPos2.reset();
+            editPos2.set("value", data[0].position2);
             editPos2.set("store", mod.positionsStore);
           }
 
@@ -1480,6 +1533,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editPos3.reset();
+            editPos3.set("value", data[0].position3);
             editPos3.set("store", mod.positionsStore);
           }
 
@@ -1498,6 +1552,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editThrows.reset();
+            editThrows.set("value", data[0].throws);
             editThrows.set("store", mod.batsthrowsStore);
           }
 
@@ -1516,6 +1571,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editBats.reset();
+            editBats.set("value", data[0].bats);
             editBats.set("store", mod.batsthrowsStore);
           }
 
@@ -1780,6 +1836,7 @@ define("admin/maniacsAdmin", [
           }
           else {
             editGradYear.reset();
+            editGradYear.set("value", data[0].grad_date);
             editGradYear.set("store", mod.gradyearStore);
           }
 
@@ -2063,8 +2120,14 @@ define("admin/maniacsAdmin", [
           }
 
           /* Edit Roster Member button */
-          on(registry.byId("editOKButton"), 'click', function(evt) {
+          var onSignal = on.once(registry.byId("editOKButton"), 'click', function(evt) {
             mod.editPlayer(id);
+            cancelSignal.remove();
+          });
+
+          /* Edit Roster Member Cancel button */
+          var cancelSignal = on.once(registry.byId("editCancelButton"), 'click', function(evt) {
+            onSignal.remove();
           });
 
           registry.byId("EditRosterDlg").show();
@@ -2279,11 +2342,12 @@ define("admin/maniacsAdmin", [
             date: {label: "Game Date", field: "game_date", renderCell: mod.formatDate},
             time: {label: "Game Time", field: "game_time", renderCell: mod.formatTime},
             type: editor({label: "Game Type", field: "game_type", editorArgs:{ store: mod.gameTypeStore, labelAttr: "type", style: "width: 100px;"}}, Select, "dblclick"),
+            desc: editor({label: "Description", field: "game_desc"}, "text", "dblclick"),
             opponent: editor({label: "Opponent", field: "game_opponent"},"text", "dblclick"),
-//            oppscore: {label: "Opponent Score", field: "opponent_score"},
-//            score: {label: "Maniacs Score", field: "maniacs_score"},
+            score: editor({label: "Maniacs Score", field: "maniacs_score"}, "text",  has('touch') ? "click" : "dblclick"),
+            oppscore: editor({label: "Opponent Score", field: "opponent_score"},"text", has('touch') ? "click" : "dblclick"),
             address: editor({label: "Address", field: "game_address"},"text", "dblclick"),
-            city: editor({label: "Address", field: "game_city"},"text", "dblclick"),
+            city: editor({label: "City", field: "game_city"},"text", "dblclick"),
             state: editor({label: "State", field: "game_state", editorArgs:{ store: mod.stateStore, labelAttr: "displaystate", style: "width: 100px;"}}, Select, "dblclick"), 
             zip: editor({label: "Zip", field: "game_zip"},"text", "dblclick")
           },
@@ -2291,7 +2355,7 @@ define("admin/maniacsAdmin", [
           errorMessage: "Error loading Maniacs Games",
           noDataMessage: "No games currently exist",
           store: mod.gamesStore,
-          sort: [{attribute: "game_date", descending: true}],
+          sort: [{attribute: "game_date", descending: false}, {attribute: "game_time", descending: false}],
           selectionMode: "none",
           rowsPerPage: 50
         }, "maniacsGamesGrid");
@@ -2309,8 +2373,13 @@ define("admin/maniacsAdmin", [
       /* Handler for the Practice Grid context menu */
       on(mod.gamesGrid, ".dgrid-row:contextmenu", function(evt){
         evt.preventDefault(); // prevent default browser context menu
-        var row = mod.gameseGrid.row(evt);
+        var row = mod.gamesGrid.row(evt);
         activeItem = row && row.data;
+      });
+
+      /* Handler for double-taps on a mobile device */
+      mod.gamesGrid.on(touchUtil.selector('.dgrid-content .dgrid-row', touchUtil.dbltap), function(event) {
+        alert("Column clicked: " + event.cell.column.id);
       });
 
       var deleteGameMenu = new Menu({
@@ -2546,6 +2615,7 @@ define("admin/maniacsAdmin", [
       var editPersonalStatement=registry.byId("editPersonalStatement").get("value");
       var editPersonalClubs=registry.byId("editPersonalClubs").get("value");
       var editPersonalCommunity=registry.byId("editPersonalCommunity").get("value");
+      var editAlumni=registry.byId("editAlumni").get("value");
       var editData = [];
       editData.push({'editFirstName': editFirstName});
       editData.push({'editLastName': editLastName});
@@ -2595,6 +2665,7 @@ define("admin/maniacsAdmin", [
       editData.push({'editPersonalStatement': editPersonalStatement});
       editData.push({'editPersonalClubs': editPersonalClubs});
       editData.push({'editPersonalCommunity': editPersonalCommunity});
+      editData.push({'editAlumni': editAlumni});
       member = json.toJson(editData, true);
       request.post("editPlayer.php", {
         handleAs: "text",
@@ -2783,6 +2854,7 @@ define("admin/maniacsAdmin", [
       var gameTime = registry.byId("gameTime").get("value");
       var gameType = registry.byId("gameType").get("value");
       var game_opponent = registry.byId("gameOpponent").get("value");
+      var game_desc = registry.byId("gameDesc").get("value");
       var address = registry.byId("gameAddress").get("value");
       var city = registry.byId("gameCity").get("value");
       var state = registry.byId("gameState").get("value");
@@ -2796,6 +2868,7 @@ define("admin/maniacsAdmin", [
         data: {date: date,
                time: sTime,
                type: gameType,
+               desc: game_desc,
                opponent: game_opponent,
                address: address,
                city: city,
@@ -2807,6 +2880,7 @@ define("admin/maniacsAdmin", [
                            date: gameDate,
                            time: gameTime,
                            type: gameType,
+                           desc: game_desc,
                            opponent: game_opponent,
                            address: address,
                            city: city,
@@ -2887,6 +2961,12 @@ define("admin/maniacsAdmin", [
             domAttr.set("rosterStatus", "innerHTML", "Error deleting selected player; Error = " + e);
             setTimeout(function(){domAttr.set("playerStatus", "innerHTML", "");}, 5000);
       });
+    },
+
+    /* This function will create a new window/tab with the selected player's information. */
+    /* This page can be printed to a PDF and uploaded to the server for viewing later.    */
+    pdfData: function(id) {
+      window.open("pdfData.php?id=" + id);
     },
 
     deleteCoach: function(id) {

@@ -20,7 +20,8 @@ define("mobile/maniacsMobile", [
     populateNews: function() {
       var mod=this;
       request.post("mobileNews.php", {
-        handleAs: "text"
+        handleAs: "text",
+        method: "POST"
       }).then(function(data) {
        domConst.place(data, "mobileNews", "after");
       });      
@@ -29,7 +30,8 @@ define("mobile/maniacsMobile", [
     populatePhotos: function() {
       var mod=this;
       request.post("mobileTeamPhotos.php", {
-        handleAs: "text"
+        handleAs: "text",
+        method: "POST"
       }).then(function(data) {
        domConst.place(data, "mobilePhotos", "after");
       });      
@@ -92,7 +94,8 @@ define("mobile/maniacsMobile", [
    populateEvents: function() {
      var mod=this;
      request.post("mobileEvents.php", {
-       handleAs: "text"
+       handleAs: "text",
+       method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobileEvents", "after");
      });      
@@ -101,7 +104,8 @@ define("mobile/maniacsMobile", [
    populatePractices: function() {
      var mod=this;
      request.post("mobilePractices.php", {
-       handleAs: "text"
+       handleAs: "text",
+       method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobilePractices", "after");
      });      
@@ -110,7 +114,8 @@ define("mobile/maniacsMobile", [
    populateGames: function() {
      var mod=this;
      request.post("mobileGames.php", {
-       handleAs: "text"
+       handleAs: "text",
+       method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobileGames", "after");
      });      
@@ -119,16 +124,28 @@ define("mobile/maniacsMobile", [
    populateRoster: function() {
      var mod=this;
      request.post("mobilePlayers.php", {
-       handleAs: "text"
+       handleAs: "text",
+       method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobileRoster", "after");
+     });      
+   },
+
+   populateAlumni: function() {
+     var mod=this;
+     request.post("mobileAlumni.php", {
+       handleAs: "text",
+       method: "POST"
+     }).then(function(data) {
+      domConst.place(data, "mobileAlumni", "after");
      });      
    },
 
    populateCoaches: function() {
      var mod=this;
      request.post("mobileCoaches.php", {
-       handleAs: "text"
+       handleAs: "text",
+       method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobileCoaches", "after");
      });      

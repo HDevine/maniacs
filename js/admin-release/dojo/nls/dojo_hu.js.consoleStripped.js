@@ -7,5 +7,7 @@ define('dojo/nls/dojo_hu',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"A megadott érték érvénytelen.","missingMessage":"Meg kell adni egy értéket.","rangeMessage":"Az érték kívül van a megengedett tartományon.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Előző menüpontok","nextMessage":"További menüpontok","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

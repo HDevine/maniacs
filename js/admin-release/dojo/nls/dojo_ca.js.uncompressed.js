@@ -7,5 +7,7 @@ define('dojo/nls/dojo_ca',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"El valor introduït no és vàlid","missingMessage":"Aquest valor és necessari","rangeMessage":"Aquest valor és fora de l'interval","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Opcions anteriors","nextMessage":"Més opcions","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

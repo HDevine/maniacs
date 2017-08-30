@@ -7,5 +7,7 @@ define('dojo/nls/dojo_sl',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Vnesena vrednost ni veljavna.","missingMessage":"Ta vrednost je zahtevana.","rangeMessage":"Ta vrednost je izven območja.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Prejšnje izbire","nextMessage":"Dodatne izbire","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} od ${total} rezultatov","gotoFirst":"Pojdi na prvo stran","gotoNext":"Pojdi na naslednjo stran","gotoPrev":"Pojdi na prejšnjo stran","gotoLast":"Pojdi na zadnjo stran","gotoPage":"Pojdi na stran","jumpPage":"Skoči na stran","rowsPerPage":"Število vrstic na stran","_localized":{}}
 });

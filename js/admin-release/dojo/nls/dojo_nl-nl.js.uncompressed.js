@@ -7,5 +7,7 @@ define('dojo/nls/dojo_nl-nl',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"De opgegeven waarde is ongeldig.","missingMessage":"Deze waarde is verplicht.","rangeMessage":"Deze waarde is niet toegestaan.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Eerdere opties","nextMessage":"Meer opties","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

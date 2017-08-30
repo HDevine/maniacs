@@ -1,7 +1,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>South Jersey Maniacs - 18U 2016/2017</title>
+<title>South Jersey Maniacs - 18U 2017-2018</title>
 
 <meta charset="utf-8">
 <link rel="stylesheet" href="/js/main-release/dojo/resources/dojo.css">
@@ -66,7 +66,7 @@
       <a href="index.php"><img src="images/maniacslogo.jpg" height="175px" width="1147px" title="Maniacs"></a>
       <table border=0>
       <tr>
-           <td><a target="_blank" title="Follow us on Facebook" href="http://www.facebook.com/sjmaniacs"><img alt="Follow us on Facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png" border=0></a></td>
+           <td><a target="_blank" title="Follow us on Facebook" href="http://www.facebook.com/maniacs18u"><img alt="Follow us on Facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png" border=0></a></td>
            <td><a href="https://twitter.com/Maniacs18U" class="twitter-follow-button" data-show-count="false">Follow @Maniacs18U</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></td>
            <td><a target="_blank" title="Follow us on Instagram" href="http://www.instagram.com/18umaniacs"><img alt="Follow us on Instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a></td>
       </table>
@@ -81,7 +81,7 @@
   </div>
   <div id="maniacsStatusPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-id="maniacsStatusPane" data-dojo-props="region:'bottom'" style="height: 110px; background-color:#008080">
     <center>
-    <iframe src="//gc.com/scoreboard-5806830f88a349002308b43c?g=5&p=56198998c4abe90020bf7b07" width="728" height="90" scrolling="no" frameborder="0"></iframe>
+<!--    <iframe src="//gc.com/scoreboard-5806830f88a349002308b43c?g=5&p=56198998c4abe90020bf7b07" width="728" height="90" scrolling="no" frameborder="0"></iframe>-->
     <br><div class="maniacsCopyright">&copy; 2016 - Site design: Harry Devine / Photos: Jeff Scozzafava</div>
     </center>
   </div>

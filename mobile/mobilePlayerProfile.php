@@ -47,9 +47,19 @@
     <div class="maniacsCell"><div class="maniacsProfile"><?php echo $player[0]->firstname . " " . $player[0]->lastname; ?></div></div>
   </div>
   <div class="maniacsRow">
-    <div class="maniacsCell"><div class="maniacsProfile">View my Video Highlights here:</div></div>
-<!--    <div class="maniacsCell"><div class="maniacsProfile"><?php echo $player[0]->video_url; ?></div></div> -->
-    <div class="maniacsCell"><img src="images/coming-soon.png" height="100px;" width="200px;"></div> 
+    <div class="maniacsCell"><div class="maniacsProfile">View my Video Highlights</div></div>
+<?php
+  if (filter_var($player[0]->video_url, FILTER_VALIDATE_URL) == true) {
+?>
+    <div class="maniacsProfile"><a href=<?php echo "\"" . $player[0]->video_url . "\" target=\"_blank\">"?>here</a></div>
+<?php
+  }
+  else {
+?>
+    <div class="maniacsCell"><img src="images/coming-soon.png" height="100px;" width="200px;"></div>
+<?php
+  }
+?>
   </div>
 </div>
 <div data-dojo-type="dijit/TitlePane" open="true" data-dojo-props="title:'Player Information'" style="background-color:#008080;">

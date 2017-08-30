@@ -7,5 +7,7 @@ define('dojo/nls/dojo_el',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Η τιμή που καταχωρήσατε δεν είναι έγκυρη.","missingMessage":"Η τιμή αυτή πρέπει απαραίτητα να καθοριστεί.","rangeMessage":"Η τιμή αυτή δεν ανήκει στο εύρος έγκυρων τιμών.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Προηγούμενες επιλογές","nextMessage":"Περισσότερες επιλογές","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

@@ -7,5 +7,7 @@ define('dojo/nls/dojo_fi-fi',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Annettu arvo ei kelpaa.","missingMessage":"Tämä arvo on pakollinen.","rangeMessage":"Tämä arvo on sallitun alueen ulkopuolella.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Edelliset valinnat","nextMessage":"Lisää valintoja","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

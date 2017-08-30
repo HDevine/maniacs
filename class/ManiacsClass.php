@@ -63,7 +63,10 @@ class ManiacsClass {
      $info = array();
      switch ($type) {
        case "basic":
-         $sql = "SELECT id, firstname, lastname, number, position1, profile_pic_path, video_url FROM players ORDER BY number ASC";
+         $sql = "SELECT id, firstname, lastname, number, position1, profile_pic_path, video_url FROM players WHERE alumni = 'No' ORDER BY number ASC";
+         break;
+       case "alumni":
+         $sql = "SELECT id, firstname, lastname, number, position1, profile_pic_path, video_url FROM players WHERE alumni = 'Yes' ORDER BY number ASC";
          break;
        case "full":
          $sql = "SELECT * FROM players p LEFT JOIN stats s ON s.player_id = p.id";
@@ -169,6 +172,7 @@ class ManiacsClass {
      $personal_statement = $info[45];
      $hs_clubs_activities = $info[46];
      $community_service = $info[47];
+     $alumni = "No";
 
      $sql = "INSERT INTO players SET firstname='$firstname',lastname='$lastname', number='$number',
              position1='$pos1', position2='$pos2', position3='$pos3', throws='$throws', bats='$bats', height='$height',
@@ -183,7 +187,8 @@ class ManiacsClass {
              travel_coach_phone='$travel_coach_phone', travel_coach_email='$travel_coach_email',
              travel_highlights='$travel_highlights', mom_name='$mom_name',
              mom_phone='$mom_phone', dad_name='$dad_name', dad_phone='$dad_phone',
-             parent_email='$parent_email', personal_statement='$personal_statement', community_service='$community_service'";
+             parent_email='$parent_email', personal_statement='$personal_statement', community_service='$community_service',
+             alumni='$alumni'";
      $sqlResult = mysqli_query($linkID, $sql);
      if (!$sqlResult) {
        $id = 0;
@@ -265,6 +270,7 @@ class ManiacsClass {
      $personal_statement = $info[45];
      $hs_clubs_activities = $info[46];
      $community_service = $info[47];
+     $alumni = $info[48];
 
      $sql = "UPDATE players SET firstname='$firstname',lastname='$lastname', number='$number',
              position1='$pos1', position2='$pos2', position3='$pos3', throws='$throws', bats='$bats', height='$height',
@@ -279,8 +285,8 @@ class ManiacsClass {
              travel_coach_phone='$travel_coach_phone', travel_coach_email='$travel_coach_email',
              travel_highlights='$travel_highlights', mom_name='$mom_name',
              mom_phone='$mom_phone', dad_name='$dad_name', dad_phone='$dad_phone',
-             parent_email='$parent_email', personal_statement='$personal_statement', community_service='$community_service' 
-             WHERE id='$id'";
+             parent_email='$parent_email', personal_statement='$personal_statement', community_service='$community_service', 
+             alumni='$alumni' WHERE id='$id'";
      $sqlResult = mysqli_query($linkID, $sql);
 
      if ($sqlResult) {

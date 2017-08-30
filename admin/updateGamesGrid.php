@@ -15,6 +15,8 @@
     $update = "game_type";
   if ($field == "opponent")
     $update = "game_opponent";
+  if ($field == "desc")
+    $update = "game_desc";
   if ($field == "address")
     $update = "game_address";
   if ($field == "city")

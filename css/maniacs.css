@@ -154,6 +154,14 @@
   text-align: center;
 }
 
+.alumniItem {
+  background-image: url("../images/alumni.png"); 
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
 .claro .dijitTitlePaneContentInner {
   padding: 10px;
   background-color: #008080;

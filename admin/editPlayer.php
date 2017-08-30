@@ -55,6 +55,7 @@
   array_push($info,addslashes($member_json[45]->editPersonalStatement));
   array_push($info,addslashes($member_json[46]->editPersonalClubs));
   array_push($info,addslashes($member_json[47]->editPersonalCommunity));
+  array_push($info,$member_json[48]->editAlumni);
 
   $maniacs->UpdateRosterMember($info, $id);
 ?>

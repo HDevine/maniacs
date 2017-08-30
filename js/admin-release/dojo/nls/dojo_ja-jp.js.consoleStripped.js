@@ -7,5 +7,7 @@ define('dojo/nls/dojo_ja-jp',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"入力した値は無効です。","missingMessage":"この値は必須です。","rangeMessage":"この値は範囲外です。","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"以前の選択項目","nextMessage":"追加の選択項目","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"検索結果${total}件中${start}件から${end}件までを表示。","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

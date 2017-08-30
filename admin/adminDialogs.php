@@ -56,6 +56,7 @@
       <tr><td>Date:</td><td><div id="gameDate"></div></td>
       <tr><td>Start Time:</td><td><div id="gameTime"></div></td>
       <tr><td>Game Type:</td><td><div id="gameType"></div></td>
+      <tr><td>Description:</td><td><div id="gameDesc"></div></td>
       <tr><td>Opponent:</td><td><div id="gameOpponent"></div></td>
       <tr><td>Address:</td><td><div id="gameAddress"></div></td>
       <tr><td>City:</td><td><div id="gameCity"></div></td>
@@ -155,7 +156,7 @@
     <div class="maniacsRosterDialog">Player Information</div>
 
     <table border=0>
-      <tr><td>First Name:</td><td><div id="editFirstName"></div></td><td>Last Name:</td><td><div id="editLastName"></div></td><td>Jersey #:</td><td><div id="editJersey"></div></td>
+      <tr><td>First Name:</td><td><div id="editFirstName"></div></td><td>Last Name:</td><td><div id="editLastName"></div></td><td>Jersey #:</td><td><div id="editJersey"></div></td><td>Alumni?</td><td><div id="editAlumni"></div></td>
       <tr><td>Position 1:</td><td><div id="editPos1"></div></td><td>Position 2:</td><td><div id="editPos2"></div><td>Position 3:</td><td><div id="editPos3"></div></td>
       <tr><td>Throws:</td><td><div id="editThrows"></div></td><td>Bats:</td><td><div id="editBats"></div></td>
       <tr><td>Height:</td><td><div id="editHeight"></div></td><td>Weight:</td><td><div id="editWeight"></div></td>

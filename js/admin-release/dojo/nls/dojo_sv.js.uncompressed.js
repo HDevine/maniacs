@@ -7,5 +7,7 @@ define('dojo/nls/dojo_sv',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Angivet värde är inte giltigt.","missingMessage":"Värdet krävs.","rangeMessage":"Värdet ligger utanför intervallet.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Tidigare val","nextMessage":"Fler val","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

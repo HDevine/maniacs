@@ -7,5 +7,7 @@ define('dojo/nls/dojo_th',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"ค่าที่ป้อนไม่ถูกต้อง","missingMessage":"จำเป็นต้องมีค่านี้","rangeMessage":"ค่านี้เกินช่วง","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"การเลือกก่อนหน้า","nextMessage":"การเลือกเพิ่มเติม","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} ของ ${total} ผลลัพธ์","gotoFirst":"ไปหน้าแรก","gotoNext":"ไปหน้าถัดไป","gotoPrev":"ไปหน้าก่อน","gotoLast":"ไปหน้าสุดท้าย","gotoPage":"ไปหน้า","jumpPage":"กระโดดไปหน้า","rowsPerPage":"Number of rows per page","_localized":{}}
 });

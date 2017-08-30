@@ -7,5 +7,7 @@ define('dojo/nls/dojo_tr',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"Girilen değer geçersiz.","missingMessage":"Bu değer gerekli.","rangeMessage":"Bu değer aralık dışında.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"Önceki seçenekler","nextMessage":"Diğer seçenekler","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

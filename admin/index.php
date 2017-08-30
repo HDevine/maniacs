@@ -8,7 +8,17 @@
 <link rel="stylesheet" href="/js/admin-release/dojo/resources/dojo.css">
 <link rel="stylesheet" href="/js/admin-release/dgrid/css/dgrid.css">
 <link rel="stylesheet" href="/js/admin-release/dgrid/css/skins/claro.css">
+<!--
+<link rel="stylesheet" href="/dojoroot/dojo/resources/dojo.css">
+<link rel="stylesheet" href="/dojo-utils/dgrid/css/dgrid.css">
+<link rel="stylesheet" href="/dojo-utils/dgrid/css/skins/claro.css">
+-->
 <link rel="stylesheet" href="/css/maniacs.css">
+
+<!--
+  @import "/dojoroot/dijit/themes/claro/claro.css";
+  @import "/dojoroot/dojo/resources/dojo.css";
+-->
 
 <style type="text/css">
   @import "/js/admin-release/dijit/themes/claro/claro.css";
@@ -17,11 +27,24 @@
 
 <script>
   var dojoConfig = {
-    async:true
+    async:true,
+/*
+    tlmSiblingOfDojo: false,
+    packages: [
+      { name: "dojo", location: "/dojoroot/dojo"},
+      { name: "dijit", location: "/dojoroot/dijit"},
+      { name: "dojox", location: "/dojoroot/dojox"},
+      { name: "dgrid", location: "/dojo-utils/dgrid" },
+      { name: "xstyle", location: "/dojo-utils/xstyle" },
+      { name: "put-selector", location: "/dojo-utils/put-selector" },
+      { name: "maniacs", location: "/js"}
+    ]
+*/
   };
 </script>
 
 <script type="text/javascript" src="/js/admin-release/dojo/dojo.js"></script>
+<!--<script type="text/javascript" src="/dojoroot/dojo/dojo.js"></script> -->
 
 <script>
   require(["dojo/parser",
@@ -34,6 +57,7 @@
            "dgrid/Grid",
            "dgrid/extensions/DijitRegistry",
            "admin/maniacsAdmin",
+//           "maniacs/maniacsAdmin",
            "dojo/domReady!"],
     function(parser, ContentPane, TabContainer, Button, registry,
              on, dom, Grid, DijitRegistry, maniacsAdmin) { 

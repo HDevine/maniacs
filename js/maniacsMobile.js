@@ -3,7 +3,7 @@ define([
   "dojo/_base/declare",
   "dojo/request",
   "dojo/dom-construct",
-  "dojo/dojo-smore/RequestMemory",
+  "dojo-smore/RequestMemory",
   "dojo/store/Observable",
   "dojo/date/stamp",
   "dojox/calendar/Calendar",
@@ -128,6 +128,16 @@ define([
        method: "POST"
      }).then(function(data) {
       domConst.place(data, "mobileRoster", "after");
+     });      
+   },
+
+   populateAlumni: function() {
+     var mod=this;
+     request.post("mobileAlumni.php", {
+       handleAs: "text",
+       method: "POST"
+     }).then(function(data) {
+      domConst.place(data, "mobileAlumni", "after");
      });      
    },
 

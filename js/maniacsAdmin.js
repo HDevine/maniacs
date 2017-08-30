@@ -10,6 +10,7 @@ define([
   "dijit/Menu",
   "dijit/MenuItem",
   "dijit/ConfirmDialog",
+  "dijit/form/ComboBox",
   "dojo/on",
   "dojo/_base/declare",
   "dojo/_base/json",
@@ -30,7 +31,7 @@ define([
   "dgrid/editor",
   "dgrid/util/touch"
 ], function(registry, Button, Dialog, DateTextBox, TimeTextBox, TextBox, Textarea, Select, Menu, MenuItem,
-            ConfirmDialog, on, declare, json, Observable, RequestMemory, domAttr, request, date, locale, stamp, 
+            ConfirmDialog, ComboBox, on, declare, json, Observable, RequestMemory, domAttr, request, date, locale, stamp, 
             lang, has, Grid, Pagination, ColumnResizer, DijitRegistry, Selection, editor,touchUtil) {
 
   return {
@@ -50,6 +51,7 @@ define([
     gradyearStore: new Observable(new RequestMemory({url:"json/gradyear.json"})),
     yearsStore: new Observable(new RequestMemory({url:"json/years.json"})),
     gameTypeStore: new Observable(new RequestMemory({url:"json/gameType.json"})),
+    alumniStore: new Observable (new RequestMemory({url:"json/alumni.json"})),
 
     /* Define the grids */
     rosterGrid: null,
@@ -1368,6 +1370,7 @@ define([
             firstname: {label: "First Name", field: "firstname"},
             lastname: {label: "Last Name", field: "lastname"},
             position: {label: "Position", field: "position1"},
+            alumni: {label: "Alumni?", field: "alumni"},
             pic: {label: "Profile Pic", field: "profile_pic_path"}
           },
           loadingMessage: "Loading Maniacs Roster",
@@ -1420,6 +1423,7 @@ define([
           method: "POST",
           data: {id: id}
         }).then(function (data) {
+
           /* Create the Player First Name Text Box control */
           if (!registry.byId("editFirstName")){
               editFirstNameEdit = new TextBox({
@@ -1457,6 +1461,23 @@ define([
           }
           else {
             editJerseyEdit.set("value", data[0].number);
+          }
+
+          /* Set the Alumni designation */
+          if (!registry.byId("editAlumni")) {
+            editAlumni = new ComboBox({
+              id: "editAlumni",
+              name: "editAlumni",
+              value: data[0].alumni,
+              store: mod.alumniStore,
+              searchAttr: "alumni",
+              style: "width: 125px;"
+            }, "editAlumni");
+          }
+          else {
+            editAlumni.reset();
+            editAlumni.set("value", data[0].alumni);
+            editAlumni.set("store", mod.alumniStore);
           }
 
           /* Create the Roster Position 1 control */
@@ -2594,6 +2615,7 @@ define([
       var editPersonalStatement=registry.byId("editPersonalStatement").get("value");
       var editPersonalClubs=registry.byId("editPersonalClubs").get("value");
       var editPersonalCommunity=registry.byId("editPersonalCommunity").get("value");
+      var editAlumni=registry.byId("editAlumni").get("value");
       var editData = [];
       editData.push({'editFirstName': editFirstName});
       editData.push({'editLastName': editLastName});
@@ -2643,6 +2665,7 @@ define([
       editData.push({'editPersonalStatement': editPersonalStatement});
       editData.push({'editPersonalClubs': editPersonalClubs});
       editData.push({'editPersonalCommunity': editPersonalCommunity});
+      editData.push({'editAlumni': editAlumni});
       member = json.toJson(editData, true);
       request.post("editPlayer.php", {
         handleAs: "text",

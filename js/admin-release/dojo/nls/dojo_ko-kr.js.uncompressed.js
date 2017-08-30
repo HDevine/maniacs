@@ -7,5 +7,7 @@ define('dojo/nls/dojo_ko-kr',{
 ,
 'dijit/form/nls/validate':{"invalidMessage":"입력된 값이 올바르지 않습니다.","missingMessage":"이 값은 필수입니다.","rangeMessage":"이 값은 범위를 벗어납니다.","_localized":{}}
 ,
+'dijit/form/nls/ComboBox':{"previousMessage":"이전 선택사항","nextMessage":"기타 선택사항","_localized":{}}
+,
 'dgrid/extensions/nls/pagination':{"status":"${start} - ${end} of ${total} results","gotoFirst":"Go to first page","gotoNext":"Go to next page","gotoPrev":"Go to previous page","gotoLast":"Go to last page","gotoPage":"Go to page","jumpPage":"Jump to page","rowsPerPage":"Number of rows per page","_localized":{}}
 });

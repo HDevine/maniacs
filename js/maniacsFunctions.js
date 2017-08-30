@@ -112,6 +112,12 @@ define([
         }
       }));
       pMenuBar.addChild(new MenuBarItem({
+        label: "Alumni",
+        onClick: function() {
+          mod.showAlumniContent();
+        }
+      }));
+      pMenuBar.addChild(new MenuBarItem({
         label: "Coaches",
         onClick: function() {
           mod.showCoachesContent();
@@ -185,6 +191,15 @@ define([
    showPlayerContent: function() {
      var mod=this;
      request.post("playerContent.php", {
+       handleAs: "text"
+     }).then(function(data) {
+       registry.byId("maniacsWorkerPane").set("content", data);
+     });
+   },
+
+   showAlumniContent: function() {
+     var mod=this;
+     request.post("alumniContent.php", {
        handleAs: "text"
      }).then(function(data) {
        registry.byId("maniacsWorkerPane").set("content", data);

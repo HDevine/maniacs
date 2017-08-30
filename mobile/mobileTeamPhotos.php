@@ -6,7 +6,7 @@ $numPhotos = count($photos);
 
 $content = "";
 $content = $content . "<div class=\"maniacsCenter\">\n";
-$content = $content . "  <div class=\"maniacsWelcome\">2016/2017 South Jersey Maniacs 18U - Team Photos</div><br><hr>\n";
+$content = $content . "  <div class=\"maniacsWelcome\">South Jersey Maniacs 18U - Team Photos</div><br><hr>\n";
 $content = $content . "  <div class=\"maniacsCopyright\">Photos are hosted on Smugmug.com; use <i>maniacs</i> if asked for a password.</div>\n";
 $content = $content . "<table border=0>\n";
 $content = $content . "<tr>\n";

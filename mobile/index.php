@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-<title>Maniacs 18U 2016-2017</title>
+<title>Maniacs 18U 2017-2018</title>
 
 <link rel="stylesheet" type="text/css" href="/js/mobile-release/dojo/resources/dojo.css">
 <link rel="stylesheet" type="text/css" href="/js/mobile-release/dijit/themes/claro/claro.css">
@@ -40,6 +40,7 @@ require(["dojox/mobile",
     maniacsMobile.populateGames();
     maniacsMobile.populatePractices();
     maniacsMobile.populateRoster();
+    maniacsMobile.populateAlumni();
     maniacsMobile.populateCoaches();
   });
 </script>
@@ -51,7 +52,7 @@ require(["dojox/mobile",
   <center>
   <table border=0>
   <tr>
-      <td><a target="_blank" title="Follow us on Facebook" href="http://www.facebook.com/sjmaniacs"><img alt="Follow us on Facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png" border=0></a></td>
+      <td><a target="_blank" title="Follow us on Facebook" href="http://www.facebook.com/maniacs18u"><img alt="Follow us on Facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png" border=0></a></td>
       <td><a href="https://twitter.com/Maniacs18U" class="twitter-follow-button" data-show-count="false">Follow @Maniacs18U</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></td>
      <td><a target="_blank" title="Follow us on Instagram" href="http://www.instagram.com/18umaniacs"><img alt="Follow us on Instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a></td>
   </table>
@@ -82,12 +83,15 @@ require(["dojox/mobile",
       <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='icon:"mblDomButtonBluePlus", moveTo:"view8", arrowClass:"mblDomButtonSilverCircleDownArrow"'>
         Maniacs Roster
       </li>
-      <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='icon:"mblDomButtonBluePlus", moveTo:"view9", arrowClass:"mblToolBarButtonArrow"'>
+      <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='icon:"mblDomButtonBluePlus", moveTo:"view9", arrowClass:"mblDomButtonSilverCircleDownArrow"'>
+        Maniacs Alumni
+      </li>
+      <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props='icon:"mblDomButtonBluePlus", moveTo:"view10", arrowClass:"mblToolBarButtonArrow"'>
         Maniacs Coaches
       </li>
     </ul>
     <h1 data-dojo-type="dojox.mobile.Heading" fixed="bottom" style="height: 135px;">
-      <div class="maniacsCenter"><iframe src="//gc.com/scoreboard-5806830f88a349002308b43c?g=5&p=56198998c4abe90020bf7b07" width="728" height="90" scrolling="no" frameborder="0"></iframe>
+<!--      <div class="maniacsCenter"><iframe src="//gc.com/scoreboard-5806830f88a349002308b43c?g=5&p=56198998c4abe90020bf7b07" width="728" height="90" scrolling="no" frameborder="0"></iframe> -->
       <br><div class="maniacsCopyright">&copy; 2016 - Site design: Harry Devine / Photos: Jeff Scozzafava</div>
       </div>
     </h1>
@@ -154,6 +158,11 @@ require(["dojox/mobile",
 </div>
 
 <div id="view9" data-dojo-type="dojox.mobile.View">
+  <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"Back", moveTo:"view1"'>Maniacs Alumni</h1>
+    <div id="mobileAlumni"></div>
+</div>
+
+<div id="view10" data-dojo-type="dojox.mobile.View">
   <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props='back:"Back", moveTo:"view1"'>Maniacs Coaches</h1>
     <div id="mobileCoaches"></div>
 </div>

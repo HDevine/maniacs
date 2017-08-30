@@ -94,7 +94,7 @@ define("maniacs/maniacsFunctions", [
         }
       }));
       pMenuBar.addChild(new MenuBarItem({
-        label: "Tournaments",
+        label: "Games",
         onClick: function() {
           mod.showGames();
         }
@@ -109,6 +109,12 @@ define("maniacs/maniacsFunctions", [
         label: "Roster",
         onClick: function() {
           mod.showPlayerContent();
+        }
+      }));
+      pMenuBar.addChild(new MenuBarItem({
+        label: "Alumni",
+        onClick: function() {
+          mod.showAlumniContent();
         }
       }));
       pMenuBar.addChild(new MenuBarItem({
@@ -191,6 +197,15 @@ define("maniacs/maniacsFunctions", [
      });
    },
 
+   showAlumniContent: function() {
+     var mod=this;
+     request.post("alumniContent.php", {
+       handleAs: "text"
+     }).then(function(data) {
+       registry.byId("maniacsWorkerPane").set("content", data);
+     });
+   },
+
    showCoachesContent: function() {
      var mod=this;
      request.post("coachesContent.php", {
@@ -211,21 +226,24 @@ define("maniacs/maniacsFunctions", [
        if (!registry.byId("gameGrid")) {
          gameGrid = new StandardGrid({
            columns: {
-             date: {label: "Tournament Date", field: "game_date", renderCell: mod.formatDate},
-             start: {label: "Tournament Time", field: "game_time", renderCell: mod.formatTime},
+             date: {label: "Date", field: "game_date", renderCell: mod.formatDate},
+             start: {label: "Time", field: "game_time", renderCell: mod.formatTime},
              type: {label: "Type", field: "game_type"},
+             desc: {label: "Description", field: "game_desc"},
              opponent: {label: "Opponent", field: "game_opponent"},
+             maniacs_score: {label: "Maniacs Score", field: "maniacs_score"},
+             opponent_score: {label: "Opponent Score", field: "opponent_score"},
              address: {label: "Address", field: "game_address"},
              city: {label: "City", field: "game_city"},
              state: {label: "State", field: "game_state"}, 
              zip: {label: "Zip", field: "game_zip"},
              map: {label: "Location Map", field: "game_map", renderCell: mod.formatMap}
            },
-           loadingMessage: "Loading Maniacs Tournaments",
-           errorMessage: "Error loading Maniacs Tournaments",
-           noDataMessage: "No tournaments currently exist",
+           loadingMessage: "Loading Maniacs Games",
+           errorMessage: "Error loading Maniacs Games",
+           noDataMessage: "No games currently exist",
            store: gameStore,
-           sort: [{attribute: "game_date", descending: true}],
+           sort: [{attribute: "game_date", descending: false}, {attribute: "game_time", descending: false}],
            selectionMode: "none",
            rowsPerPage: 50
          }, "gameGrid");

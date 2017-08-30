@@ -6,7 +6,7 @@ $numPlayers = count($roster);
 
 $content = "";
 $content = $content . " <center>\n";
-$content = $content . "  <div class=\"maniacsWelcome\">2016/2017 South Jersey Maniacs 18U Roster</div><hr>\n";
+$content = $content . "  <div class=\"maniacsWelcome\">2017/2018 South Jersey Maniacs 18U Roster</div><hr>\n";
 $content = $content . "  <table border=0>\n";
 for ($i = 0; $i < $numPlayers; $i++) {
 //  if ($i % 2 == 0) {
